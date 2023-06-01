@@ -29,6 +29,23 @@
     <p>Gender : {{developper.gender}}</p>
     <p>Biography : {{developper.biography}}</p>
 </div>
+<form (ngSubmit)="skillSubmit()">
+
+    <h4>Add a skill :</h4>
+    <label for="name">Name :</label>
+    <input id="name" type="text" name="name" required>
+  
+    <label for="logo">Logo :</label>
+    <input id="logo" type="text" name="logo" required>
+  
+    <label for="site">Site :</label>
+    <input id="site" type="text" name="site" required>
+  
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  
+</form>
 <app-skill *ngFor="let skill in developper.skills"
 [name]="skill.name"
 [logo]="skill.logo"

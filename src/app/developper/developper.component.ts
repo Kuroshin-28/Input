@@ -33,4 +33,8 @@ export class DevelopperComponent {
   onSubmit(){
     console.log("Submit");
   }
+
+  skillSubmit(name: string, logo: string, site: string){
+    this.developper.skills.push(new skill(name, logo, site));
+  }
 }
