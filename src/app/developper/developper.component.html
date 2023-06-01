@@ -1,0 +1,37 @@
+<form (ngSubmit)="onSubmit()">
+
+  <h4>Developper Info :</h4>
+  <label for="firstname">Flour quantity :</label>
+  <input id="firstname" type="text" name="firstname" [(ngModel)]="developper.firstname" required minlength="2">
+
+  <label for="lastname">Salt quantity :</label>
+  <input id="lastname" type="text" name="lastname" [(ngModel)]="developper.lastname" required minlength="2">
+
+  <label for="age">Sugar quantity :</label>
+  <input id="age" type="number" name="age" [(ngModel)]="developper.age" required>
+
+  <label for="gender">Egg quantity :</label>
+  <input id="gender" type="radio" name="gender" value="F" [(ngModel)]="developper.gender" required>
+  <input id="gender" type="radio" name="gender" value="M" [(ngModel)]="developper.gender" required>
+
+  <label for="biography">Number of cookies :</label>
+  <input id="biography" type="text" name="biography" [(ngModel)]="developper.biography" required>
+
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+
+</form>
+<div *ngIf="developper.firstname && developper.lastname && developper.age && developper.gender && developper.biography">
+    <p>Firstname : {{developper.firstname}}</p>
+    <p>Lastname : {{developper.lastname}}</p>
+    <p>Age : {{developper.age}}</p>
+    <p>Gender : {{developper.gender}}</p>
+    <p>Biography : {{developper.biography}}</p>
+</div>
+<app-skill *ngFor="let skill in developper.skills"
+[name]="skill.name"
+[logo]="skill.logo"
+[site]="skill.site">
+</app-skill>
+
