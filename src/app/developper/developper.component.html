@@ -1,20 +1,20 @@
 <form (ngSubmit)="onSubmit()">
 
   <h4>Developper Info :</h4>
-  <label for="firstname">Flour quantity :</label>
+  <label for="firstname">Firstname :</label>
   <input id="firstname" type="text" name="firstname" [(ngModel)]="developper.firstname" required minlength="2">
 
-  <label for="lastname">Salt quantity :</label>
+  <label for="lastname">Lastname :</label>
   <input id="lastname" type="text" name="lastname" [(ngModel)]="developper.lastname" required minlength="2">
 
-  <label for="age">Sugar quantity :</label>
+  <label for="age">Age :</label>
   <input id="age" type="number" name="age" [(ngModel)]="developper.age" required>
 
-  <label for="gender">Egg quantity :</label>
-  <input id="gender" type="radio" name="gender" value="F" [(ngModel)]="developper.gender" required>
-  <input id="gender" type="radio" name="gender" value="M" [(ngModel)]="developper.gender" required>
+  <label for="gender">Gender :</label>
+  <input id="gender" type="radio" name="gender" value="F" [(ngModel)]="developper.gender" required>F
+  <input id="gender" type="radio" name="gender" value="M" [(ngModel)]="developper.gender" required>M
 
-  <label for="biography">Number of cookies :</label>
+  <label for="biography">Biography :</label>
   <input id="biography" type="text" name="biography" [(ngModel)]="developper.biography" required>
 
   <div>
@@ -22,7 +22,7 @@
   </div>
 
 </form>
-<div *ngIf="developper.firstname && developper.lastname && developper.age && developper.gender && developper.biography">
+<div *ngIf="devSubmitted && (developper.firstname && developper.lastname && developper.age && developper.gender && developper.biography)">
     <p>Firstname : {{developper.firstname}}</p>
     <p>Lastname : {{developper.lastname}}</p>
     <p>Age : {{developper.age}}</p>
@@ -33,20 +33,21 @@
 
     <h4>Add a skill :</h4>
     <label for="name">Name :</label>
-    <input id="name" type="text" name="name" required>
+    <input id="name" type="text" name="name" [(ngModel)]="skill.name" required>
   
     <label for="logo">Logo :</label>
-    <input id="logo" type="text" name="logo" required>
+    <input id="logo" type="text" name="logo" [(ngModel)]="skill.logo" required>
   
     <label for="site">Site :</label>
-    <input id="site" type="text" name="site" required>
+    <input id="site" type="text" name="site" [(ngModel)]="skill.site" required>
   
     <div>
       <button type="submit">Submit</button>
     </div>
   
 </form>
-<app-skill *ngFor="let skill in developper.skills"
+<h2 *ngIf="developper.skills">List of skills :</h2>
+<app-skill *ngFor="let skill of developper.skills"
 [name]="skill.name"
 [logo]="skill.logo"
 [site]="skill.site">

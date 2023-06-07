@@ -1,22 +1,6 @@
 import { Component } from '@angular/core';
-import { skill } from '../skill/skill.component';
-
-export class developper {
-  firstname: string;
-  lastname: string;
-  age: number;
-  gender: string;
-  biography: string;
-  skills: skill[] = [];
-
-  constructor(firstname: string, lastname: string, age: number, gender: string, biography: string){
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.age = age;
-    this.gender = gender;
-    this.biography = biography;
-  }
-}
+import { developper } from '../models/developper.model';
+import { skill } from '../models/skill.model';
 
 @Component({
   selector: 'app-developper',
@@ -25,16 +9,19 @@ export class developper {
 })
 export class DevelopperComponent {
   developper: developper = new developper("", "", 0, "", "");
+  skill: skill = new skill("", "", "");
+
+  devSubmitted: boolean = false;
 
   constructor() {
 
   }
 
   onSubmit(){
-    console.log("Submit");
+    this.devSubmitted = true;
   }
 
-  skillSubmit(name: string, logo: string, site: string){
-    this.developper.skills.push(new skill(name, logo, site));
+  skillSubmit(){
+    this.developper.skills.push(this.skill);
   }
 }

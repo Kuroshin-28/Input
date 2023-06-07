@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core';
 
-export class skill {
+@Component({
+  selector: 'app-skill',
+  templateUrl: './skill.component.html',
+  styleUrls: ['./skill.component.css']
+})
+export class SkillComponent{
   @Input()
   name: string = "";
 
@@ -10,19 +15,6 @@ export class skill {
   @Input()
   site: string = "";
 
-  constructor(name: string, logo: string, site: string){
-    this.name = name;
-    this.logo = logo;
-    this.site = site;
-  }
-}
-
-@Component({
-  selector: 'app-skill',
-  templateUrl: './skill.component.html',
-  styleUrls: ['./skill.component.css']
-})
-export class SkillComponent{
   ngOnInit(): void {
 
   }
